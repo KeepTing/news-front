@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		
+		<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo">
+    	<img src="img/logo.png">
+    </a>
+
+    <div class="container">
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab"><span id="indexPage" class="menu-text">首页</span></li>
+           
+        </ul>
+      </div>
+    </div>
+ 		<a class="btn logo-up" id="editChannel"  type="button" data-toggle="modal" data-target=".bd-example-modal-sm">
+    		编辑频道
+    	</a>
+    	<a href="html/login/login.html" id="loginTo" class="btn logo-up" >
+    		登录
+    	</a>
+    	<a href="html/login/register.html" id="registerTo" class="btn sige-up">
+    		注册
+    	</a>
+  </div>
+  
+</nav>
+<!--author-->
+<div class="container1">
+	<div class="content">
+
+	<div id="list-container">
+        <!-- 文章列表模块 -->
+        <ul class="note-list">
+          
+
+        </ul>
+        
+        <!-- 文章列表模块 -->
+      </div>
+	<div class="right">
+		<!--头像-->
+	<div id="userInfo">
+		<div class="outer">
+			<div  class="login inner">
+				<ul class="third-login">
+					<li>
+						<a href="html/info/info.html"><img id="imgTx" src=""/></a>
+					</li>
+					<li>
+						<span id="username"></span>
+					</li>
+					<li>
+						人品：<span id="score"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="bui-box">
+		<div class="pane-module">
+			<div class="module-head">24小时热闻</div>
+			<ul class="module-content article-list"></ul>
+		</div>
+	</div>
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
+							
+	
+	
+	
+	
+	
+</div>
+<!--频道拟态框-->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="content">
+	      	<p>
+	      		<span class="dtitle">我的频道</span>
+		      	<span class="ftitle">点击进入频道</span>
+		      	<!--<button type="button" class="btn btn-danger" style="outline: none;">编辑</button>-->
+	      	</p>
+	      	<ul id="add">
+	      		<!--<li id="1">+新闻1</li>
+	      		<li id="2">+新闻2</li>
+	      		<li id="3">+新闻3</li>
+	      		<li id="4">+新闻4</li>-->
+	      	</ul>
+	      	<div class="clear">
+	      		
+	      	</div>
+	      	<p>
+	      		<span class="dtitle">频道推荐</span>
+		      	<span class="ftitle">点击添加频道</span>
+		      	
+	      	</p>
+	      	<ul id="tj">
+	      		<!--<li id="5">+新闻5</li>
+	      		<li id="6">+新闻6</li>
+	      		<li id="7">+新闻7</li>
+	      		<li id="8">+新闻8</li>-->
+	      		
+	  
+	      	</ul>
+	    </div>
+	    <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="save">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="refresh">
+        	 <i class="fa fa-refresh "></i>
+        </div>
+<script>
+$(function(){
+	var t1='';
+	var id='';
+	//订阅
+    $('#tj').on('click','li',function(){
+    	t1=$(this).text();
+    	id=$(this).attr("id");
+        $(this).closest('li').remove();
+        var li=$("<li></li>");
+        li.attr("id",id);
+		li.attr("sub","yes");
+        li.text(t1);
+       // alert(id);
+        $("#add").append(li);
+  
+        return false;
+    });
+	
+	//取消订阅
+     $('#add').on('click','li',function(){
+    	t1=$(this).text();
+    	id=$(this).attr("id");
+        $(this).closest('li').remove();
+        var li=$("<li></li>");
+		li.attr("unSub","yes");
+        li.attr("id",id);
+        li.text(t1);
+          //    alert(id);
+       	$("#tj").append(li);
+        return false;
+    });
+     
+});
+</script>
+	</body>
+</html>

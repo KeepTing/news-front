@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--关注用户按钮-->
+							<div >
+								<div href="" class="btn btn-success follow"  id="follow1" style="display: inline-block;">
+									<i class="fa fa-plus"></i>
+									<span>关注</span>
+								</div>
+								
+							
+							</div>
+							<div id="following1" style="display: none;">
+								
+								<span>取消关注</span>
+							
+							</div>
+		<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	  $(document).ready(function(){
+	  	$("#follow1").click(function(){
+	  		alert($(this).css("display"));
+			  $(this).css('display','none');;
+			  $('#following1').css('display','inline-block'); 
+			});
+	    	
+	  });
+</script>
+	</body>
+</html>
